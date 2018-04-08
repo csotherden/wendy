@@ -94,7 +94,7 @@ func (app *WendyApplication) OnDeliver(msg wendy.Message) {
 }
 
 func (app *WendyApplication) OnForward(msg *wendy.Message, next wendy.NodeID) bool {
-	fmt.Printf("Forwarding message %s to Node %s.", msg.ID, next)
+	fmt.Printf("Forwarding message %s to Node %s.", msg.Key, next)
 	return true // return false if you don't want the message forwarded
 }
 
@@ -102,15 +102,15 @@ func (app *WendyApplication) OnNewLeaves(leaves []*wendy.Node) {
 	fmt.Println("Leaf set changed: ", leaves)
 }
 
-func (app *WendyApplication) OnNodeJoin(node *wendy.Node) {
+func (app *WendyApplication) OnNodeJoin(node wendy.Node) {
 	fmt.Println("Node joined: ", node.ID)
 }
 
-func (app *WendyApplication) OnNodeExit(node *wendy.Node) {
+func (app *WendyApplication) OnNodeExit(node wendy.Node) {
 	fmt.Println("Node left: ", node.ID)
 }
 
-func (app *WendyApplication) OnHeartbeat(node *wendy.Node) {
+func (app *WendyApplication) OnHeartbeat(node wendy.Node) {
 	fmt.Println("Received heartbeat from ", node.ID)
 }
 
