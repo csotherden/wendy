@@ -152,7 +152,7 @@ if err != nil {
 }
 purpose := byte(16)
 msg := cluster.NewMessage(purpose, id, []byte("This is the body of the message."))
-err = c.Send(msg)
+err = cluster.Send(msg)
 if err != nil {
 	panic(err.Error())
 }
